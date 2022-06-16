@@ -10,17 +10,19 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "serve": "turbo run serve --parallel"
   },
   "devDependencies": {
-    "eslint-config-custom": "latest",
-    "prettier": "latest",
+    "eslint": "^8.17.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.3",
+    "eslint-plugin-promise": "^6.0.0",
     "turbo": "latest"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=14.0.0"
+    "npm": ">=8.0.0",
+    "node": ">=16.0.0"
   },
-  "dependencies": {},
   "packageManager": "npm@8.8.0"
 }

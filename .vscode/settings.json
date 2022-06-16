@@ -1,0 +1,11 @@
+{
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "javascript.format.enable": false,
+  "typescript.format.enable": false
+}
