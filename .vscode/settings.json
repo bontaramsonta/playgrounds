@@ -6,6 +6,9 @@
   "files.associations": {
     "*.css": "postcss"
   },
+  "files.exclude": {
+    "apps/cpp-playground/.vscode": true,
+  },
   "javascript.format.enable": false,
   "typescript.format.enable": false
 }
