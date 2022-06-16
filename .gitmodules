@@ -1,3 +1,6 @@
 [submodule "apps/cpp-playground"]
 	path = apps/cpp-playground
 	url = https://github.com/bontaramsonta/cpp-playground
+[submodule "apps/rust"]
+	path = apps/rust
+	url = https://github.com/bontaramsonta/rustplay
