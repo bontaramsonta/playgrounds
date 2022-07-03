@@ -1,5 +1,6 @@
 {
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
@@ -8,7 +9,17 @@
   },
   "files.exclude": {
     "apps/*/.vscode": true,
+    "**/.eslintrc.js": true,
+    "**/tsconfig.json": true,
+    "**/node_modules": false
   },
-  "javascript.format.enable": false,
-  "typescript.format.enable": false
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
