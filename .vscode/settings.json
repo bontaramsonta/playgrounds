@@ -11,7 +11,12 @@
     "apps/*/.vscode": true,
     "**/.eslintrc.js": true,
     "**/tsconfig.json": true,
-    "**/node_modules": false
+    "**/node_modules": true,
+    "//apps/cpp-playground": true,
+    "//apps/rust": true,
+    "//apps/node": true,
+    "//apps/web": true,
+    "//apps/react": true
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
