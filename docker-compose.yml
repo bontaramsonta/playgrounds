@@ -1,0 +1,14 @@
+services:
+  redis:
+    image: redislabs/redismod
+    container_name: socredis
+    restart: 'no'
+    logging:
+      driver: 'none' # comment out to see mongod logs
+    ports:
+      - '6379:6379'
+    volumes:
+      - socredis:/data
+
+volumes:
+  socredis:
