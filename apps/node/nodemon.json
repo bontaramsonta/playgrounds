@@ -1,0 +1,9 @@
+{
+  "env": {},
+  "verbose": false,
+  "exec": "node src/main.js",
+  "watch": "src/**/*.js",
+  "events": {
+    "restart": "clear"
+  }
+}

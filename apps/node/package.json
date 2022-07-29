@@ -3,12 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "module": "main.js",
   "scripts": {
-    "dev": "nodemon main.js",
+    "dev": "nodemon",
     "lint": "eslint --ext .js ."
   },
   "dependencies": {
+    "redis": "^4.1.1",
     "shared": "*",
     "socket.io": "^4.5.1"
   },
