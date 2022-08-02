@@ -1,0 +1,26 @@
+{
+  "name": "python",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -q"
+  },
+  "nodemonConfig": {
+    "verbose": false,
+    "watch": [
+      "main.py"
+    ],
+    "exec": "python main.py",
+    "ext": "py",
+    "events": {
+      "restart": "clear"
+    }
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
