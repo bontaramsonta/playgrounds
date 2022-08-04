@@ -1,4 +1,5 @@
 # venv = pyenv
-import numpy as np
-arr = np.array([1,2,3,5,6,7,8,9,10])
-print(arr)
+import json
+jess = '{"name": "Jessica Wilkins", "hobbies": ["music", "watching TV", "hanging out with friends"]}'
+jess_dict = json.loads(jess)
+print(jess_dict)

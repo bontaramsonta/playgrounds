@@ -1,7 +1,7 @@
 {
   "env": {},
   "verbose": false,
-  "exec": "node src/main.js",
+  "exec": "node src/youtubeInsertChat.js",
   "watch": "src/**/*.js",
   "events": {
     "restart": "clear"

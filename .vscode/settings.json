@@ -9,14 +9,16 @@
   },
   "files.exclude": {
     "apps/*/.vscode": true,
-    "**/.eslintrc.js": true,
     "**/tsconfig.json": true,
     "**/node_modules": true,
-    "//apps/cpp-playground": true,
-    "//apps/rust": true,
+    "apps/cpp-playground": true,
+    "apps/rust": true,
+    "apps/python": true,
+    "apps/ts-play": true,
+    "apps/bash": true,
     "//apps/node": true,
-    "//apps/web": true,
-    "//apps/react": true
+    "apps/web": true,
+    "apps/react": true
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
