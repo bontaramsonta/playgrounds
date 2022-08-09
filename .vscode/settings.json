@@ -1,9 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
   "files.associations": {
     "*.css": "postcss"
   },
@@ -11,22 +7,13 @@
     "apps/*/.vscode": true,
     "**/tsconfig.json": true,
     "**/node_modules": true,
-    "apps/cpp-playground": true,
-    "apps/rust": true,
-    "apps/python": true,
-    "apps/ts-play": true,
-    "apps/bash": true,
+    "//apps/cpp-playground": true,
+    "//apps/rust": true,
+    "//apps/python": true,
+    "//apps/ts-play": true,
+    "//apps/bash": true,
     "//apps/node": true,
-    "apps/web": true,
-    "apps/react": true
+    "//apps/web": true,
+    "//apps/react": true
   },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
 }
