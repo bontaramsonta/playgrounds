@@ -4,11 +4,12 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "module": "main.js",
+  "module": "demo.js",
   "scripts": {
     "dev": "nodemon"
   },
   "dependencies": {
+    "dayjs": "^1.11.5",
     "dotenv": "^16.0.1",
     "googleapis": "^105.0.0",
     "mongodb": "^4.8.1",
