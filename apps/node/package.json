@@ -6,6 +6,7 @@
   "type": "module",
   "module": "demo.js",
   "scripts": {
+    "start": "node src/main.js",
     "dev": "nodemon"
   },
   "dependencies": {

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -q"
+    "start": "python main.py",
+    "dev": "nodemon -q"
   },
   "nodemonConfig": {
     "verbose": false,

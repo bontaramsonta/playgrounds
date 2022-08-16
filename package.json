@@ -9,7 +9,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
-    "serve": "turbo run serve --parallel"
+    "start": "turbo run start --parallel"
   },
   "devDependencies": {
     "turbo": "latest"
