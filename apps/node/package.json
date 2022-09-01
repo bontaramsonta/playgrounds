@@ -14,6 +14,7 @@
     "dotenv": "^16.0.1",
     "googleapis": "^105.0.0",
     "mongodb": "^4.8.1",
+    "ramda": "^0.28.0",
     "redis": "^4.1.1",
     "shared": "*",
     "socket.io": "^4.5.1"
