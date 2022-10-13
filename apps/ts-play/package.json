@@ -2,18 +2,26 @@
   "name": "typescript",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "module": "dist/main.js",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "FORCE_COLOR=1 FRESH=1 node dev.js"
+    "dev": "FORCE_COLOR=1 FRESH=1 node dev.js",
+    "build": "node build.js",
+    "preview": "node bin/out.js"
   },
   "devDependencies": {
-    "nodemon":"~2.0.16",
-    "chalk":"~5.0.1",
+    "@types/ramda": "^0.28.15",
+    "chalk": "~5.0.1",
+    "esbuild": "^0.15.10",
+    "nodemon": "~2.0.16",
+    "tsconfig-paths": "^4.1.0",
     "typescript": "~4.7.3"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "ramda": "^0.28.0"
+  }
 }

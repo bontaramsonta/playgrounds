@@ -1,11 +1,11 @@
 {
   "editor.formatOnSave": true,
   "files.associations": {
-    "*.css": "postcss"
+    "*.css": "tailwindcss"
   },
   "files.exclude": {
     "apps/*/.vscode": true,
-    "**/tsconfig.json": true,
+    "//**/tsconfig.json": true,
     "**/node_modules": true,
     "//apps/cpp-playground": true,
     "//apps/rust": true,

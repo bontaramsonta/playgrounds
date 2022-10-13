@@ -10,7 +10,7 @@ import { rm } from 'fs/promises'
       await rm(join(resolve(), 'dist'), { recursive: true, force: true })
     }
     nodemon({
-      exec: 'tsc && node dist/main.js',
+      exec: 'tsc && node -e \'import("./dist/main.js").then(module=>module.main())\'',
       verbose: false,
       ext: 'js,ts',
       watch: './src/**/*.ts',
@@ -30,7 +30,17 @@ import { rm } from 'fs/promises'
         console.log(l('red', '[nodemon exiting]'))
       })
       .on('restart', files => {
-        console.log(l('red', '[nodemon restarted] '), 'files changed', files)
+        console.log(
+          l(
+            'red',
+            '[nodemon restarted] '
+          ),
+          'files changed',
+          files
+            .map(file => file.substring(file.lastIndexOf('/') + 1))
+            .join(', ')
+        )
+        // console.clear() // if you want clear console on restarts
       })
   } catch (err) {
     console.log(err)
