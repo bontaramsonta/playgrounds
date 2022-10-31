@@ -1,49 +1,103 @@
-import { useQuery } from '@tanstack/react-query'
-import Components1 from '@components/Component1'
-import Component2 from '@components/Component2'
-import { IBook } from 'types'
+import { useEffect, useState } from 'react';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
 
-function App() {
-  const { isLoading, isError, error, data: books } = useQuery<IBook[], Error>(
-    ['books'],
-    () => fetch('/api/books.json').then(res => {
-      console.log('[books called]')
-      if (res.status === 200)
-        return res.json()
-      else
-        throw new Error(res.statusText)
+import { SortableItem } from '@components/SortableItem'
+
+export default function App() {
+  const [items, setItems] = useState([[1, 2, 3], [4, 5, 6]]);
+  //!debug
+  useEffect(() => console.log('[items changed]', items), [items])
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
     })
-    , {
-      staleTime: 10000,
-    })
+  );
+
   return (
-    <div className="App">
-      <div className="text-xl">Welcome to the query Library</div>
-      {isError && (<div className='text-red-500'>{error.message}</div>)}
-      {isLoading && (<div className='text-green-600'>loading</div>)}
-      {Array.isArray(books) && (
-        <div className="flex space-x-3 space-y-3 flex-wrap flex-grow-0 flex-shrink-0">
-          {books?.map(book => (
-            <div key={book.id} className="p-2 flex flex-col w-60 border-2 rounded-lg space-y-1">
-              <h2 className='text-xl'>{book.title}</h2>
-              <p className='italic'>{book.description}</p>
-              <p className='text-sm font-bold'>{book.rating}</p>
-              <button
-                className='underline w-fit'
-                onClick={() => {
-                  console.log('book', book.id, 'was clicked')
-                  // const {}
-                }}>
-                check it out
-              </button>
-            </div>
-          ))}
-        </div>
-      )}
-      <Components1 />
-      <Component2 />
-    </div>
-  )
-}
+    <DndContext
+      sensors={sensors}
+      collisionDetection={closestCenter}
+      onDragOver={handleDragOver}
+      onDragEnd={handleDragEnd}
+    >
+      <div className='flex space-x-4'>
+        {items.map((item, i) => (
+          <div key={i} className='flex flex-col space-y-4 p-2 bg-slate-100'>
+            <SortableContext
+              id={i.toString()}
+              items={item}
+              strategy={verticalListSortingStrategy}
+            >
+              {item.map(id => <SortableItem key={id} id={id} />)}
+            </SortableContext>
+          </div>
+        ))}
+      </div>
+    </DndContext>
+  );
 
-export default App
+  function handleDragOver(event: any) {
+    const { active, over } = event
+    const sourceId = Number(active.data.current.sortable.index)
+    const sourceContainer = Number(active.data.current.sortable.containerId)
+    const destinationId = Number(over.data.current.sortable.index)
+    const destinationContainer = Number(over.data.current.sortable.containerId)
+    if (sourceContainer !== destinationContainer) {
+      console.log('[handle drag over]', event)
+      console.log({
+        sourceId,
+        sourceContainer,
+        destinationId,
+        destinationContainer
+      })
+      setItems(items => {
+        let source = items[sourceContainer]
+        let destination = items[destinationContainer]
+        const data = source.splice(sourceId, 1)[0]
+        destination.splice(destinationId, 0, data)
+        console.log('[items]', items, data)
+        return Array.from(items)
+      })
+    }
+  }
+
+  function handleDragEnd(event: any) {
+    const { active, over } = event;
+    const sourceId = active.id
+    const sourceContainer = Number(active.data.current.sortable.containerId)
+    const destinationId = over.id
+    const destinationContainer = Number(over.data.current.sortable.containerId)
+    if (sourceContainer === destinationContainer) {
+      console.log('[handle drag end]', event)
+      console.log({
+        sourceId,
+        sourceContainer,
+        destinationId,
+        destinationContainer
+      })
+      if (active.id !== over.id) {
+        console.log('[move within]')
+        setItems((items) => {
+          const oldIndex = items[sourceContainer].indexOf(sourceId);
+          const newIndex = items[sourceContainer].indexOf(destinationId);
+          items[sourceContainer] = arrayMove(items[sourceContainer], oldIndex, newIndex);
+          return Array.from(items)
+        });
+      }
+    }
+  }
+}
