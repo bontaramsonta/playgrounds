@@ -3,5 +3,10 @@
 @tailwind utilities;
 @layer base {
   /* for custom classes */
-
+  html,body, #root {
+    @apply h-full w-full;
+  }
+  * {
+    @apply box-border;
+  }
 }
